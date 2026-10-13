@@ -1,0 +1,20 @@
+# Currency basket: MSCI EAFE currency weights (approximate, 2015), restricted to the nine currencies with free
+# OECD 3-month rates; HKD (pegged), SGD and ILS (~5% together) are dropped and the rest renormalised.
+basket: {EUR: 0.31, JPY: 0.23, GBP: 0.19, CHF: 0.09, AUD: 0.07, SEK: 0.03, DKK: 0.02, NOK: 0.007, NZD: 0.002}
+# World Bank PPP conversion factor (LCU per international $, OECD-Eurostat programme for these countries).
+# The World Bank has no euro-area aggregate: EUR uses a fixed GDP-weighted geometric mean of five members.
+euro_ppp_weights: {DEU: 0.35, FRA: 0.25, ITA: 0.20, ESP: 0.13, NLD: 0.07}
+ppp_country: {EUR: EUROAREA, JPY: JPN, GBP: GBR, CHF: CHE, AUD: AUS, SEK: SWE, DKK: DNK, NOK: NOR, NZD: NZL}
+ppp_lag_years: 2           # PPP for year Y is used from 1 Jan of Y+2 (publication lag)
+# Disclosed signals (497K): interest-rate differential, momentum (10 vs 240 business-day moving averages of the
+# USD spot rate), value (20-day average spot vs OECD PPP). Equal weights; hedge ratio = share of signals voting
+# "hedge", so it moves in steps of 1/3 between 0% and 100%; reset monthly.
+momentum: {fast: 10, slow: 240}
+value_window: 20
+# Extensions (Layer C, not disclosed): volatility and cross-asset signals; 5 equal votes, steps of 20%.
+volatility: {window: 21, lookback: 252}    # hedge when 21d FX vol is above its trailing 1-year median
+cross_asset: {window: 63, risk_on: [EUR, GBP, AUD, SEK, DKK, NOK, NZD], safe_haven: [JPY, CHF]}
+# Costs (one-way, bp of hedged notional): changing the hedge ratio pays the spot+forward spread; the monthly roll of
+# the outstanding forward pays one FX-swap spread.
+cost_bp: {EUR: 1.0, JPY: 1.0, GBP: 1.5, CHF: 2.0, AUD: 2.0, SEK: 3.0, DKK: 3.0, NOK: 3.0, NZD: 3.0}
+roll_bp: {EUR: 0.5, JPY: 0.5, GBP: 0.7, CHF: 1.0, AUD: 1.0, SEK: 1.5, DKK: 1.5, NOK: 1.5, NZD: 1.5}

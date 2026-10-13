@@ -1,0 +1,5 @@
+# Keep the pre-registration byte-exact so its SHA-256 (the test-period key) is the same on every OS.
+research/preregistration.md -text
+*.py text eol=lf
+*.md text eol=lf
+*.yaml text eol=lf

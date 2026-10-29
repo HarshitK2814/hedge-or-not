@@ -1,0 +1,8 @@
+# v2 (2026-10-29). dev+val are the only periods used for choices (choices use data up to 2016-12 only).
+# test and recent were reported in v1, so in v2 they are "seen periods", reported with that label.
+# forward starts at the v2 freeze date.
+development: ["2001-09", "2010-12"]
+validation: ["2011-01", "2016-12"]
+test: ["2017-01", "2024-12"]
+recent: ["2025-01", "2026-10"]
+forward: ["2026-11", null]

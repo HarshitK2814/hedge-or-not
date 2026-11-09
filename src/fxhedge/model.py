@@ -77,7 +77,7 @@ def static(idx: pd.DatetimeIndex, ccys: list[str], ratio: float) -> pd.DataFrame
     return pd.DataFrame(ratio, index=idx, columns=ccys)
 
 
-def overlay(H: pd.DataFrame, inp: dict) -> dict[str, pd.Series]:
+def overlay(H: pd.DataFrame, inp: dict, cost_mult: pd.Series | None = None) -> dict[str, pd.Series]:
     """Daily overlay return on a portfolio with the basket's currency exposure, and its costs."""
     c = inp["cfg"]
     w = pd.Series(c["basket"], dtype=float)
@@ -89,6 +89,8 @@ def overlay(H: pd.DataFrame, inp: dict) -> dict[str, pd.Series]:
     trade = H.diff().abs().fillna(H.abs()).mul(w * cost_bp, axis=1).sum(axis=1)
     roll = H.abs().mul(w * roll_bp, axis=1).sum(axis=1).where(first_day, 0.0)
     cost = trade + roll
+    if cost_mult is not None:  # v2: stress-aware costs (default None = v1)
+        cost = cost * cost_mult.reindex(H.index).ffill().fillna(1.0)
     return {"gross": gross, "cost": cost, "net": gross - cost, "hedge": H.mul(w, axis=1).sum(axis=1)}
 
 

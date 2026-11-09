@@ -152,3 +152,69 @@ EFA stands in for the fund's dividend-weighted index; vote rules are our reading
 Currency Markets*, RFS · Politis & Romano (1994).
 
 *Research artifact, not investment advice.*
+
+## v2 (industry-grade upgrade)
+
+v1 asked whether a prospectus-style vote rule beats static hedging. v2 benchmarks it against what currency-overlay desks use
+(minimum-variance and vol-capped hedge ratios), adds stress-aware costs, a tail-risk lens (CVaR, VaR backtests) and an overfitting audit.
+Every number is generated from files: [`research/results_v2.md`](research/results_v2.md). v1 above is unchanged.
+Pre-registration v2 hash `b2e9a0e506a9` ([`research/preregistration_v2.md`](research/preregistration_v2.md), never edited).
+
+**Timing.** Ratios are computed at the last business day of month m from data up to that day and held from the next business day (monthly).
+Costs are v1 costs, tripled after a VIX close above 30. No capacity model: this is an overlay on notional exposure.
+
+### Research -> gap -> solution
+
+| Research | Gap in v1 | v2 solution |
+|---|---|---|
+| Campbell, Serfaty-de Medeiros and Viceira (2010) on minimum-variance currency hedging; vol-targeting overlays; Bailey and Lopez de Prado on backtest overfitting | v1 compared only with static hedges, ignored tail risk and stress costs, never audited its own selection, and its test period is now seen | MV and vol-capped benchmarks (H1, H2), PBO + deflated Sharpe (H3), descriptive D1-D9, conformal and PySR (exploratory), forward tracker |
+
+```mermaid
+flowchart LR
+    A["v1 vote rule<br/>(rate, momentum, value)"] --> B["MV 60-month hedge<br/>H1"]
+    A --> C["Vol-capped hedge<br/>GJR-GARCH, H2"]
+    A --> D["34-config family<br/>PBO + DSR, H3"]
+    B & C --> E["Stress costs, CVaR,<br/>VaR backtest (D1-D9)"]
+    E --> F["E1 conformal, E2 PySR<br/>(exploratory)"]
+    D & E --> G["Verdicts (prereg v2)"]
+    G --> H["Seen period 2017-2026<br/>labelled, descriptive"]
+    G --> I["Forward tracker<br/>monthly from 2026-11"]
+```
+
+### Results (read the honest version)
+
+| Question | Verdict |
+|---|---|
+| H1: minimum-variance hedge has lower volatility than static 50% | SUPPORTED, from 2006-09 (not 2006-01); static 100% still had the lowest volatility |
+| H2: vol-capped hedge has lower CVaR(95%) than static 50% | NOT SUPPORTED; the literal GARCH forecast explodes for CHF, the guarded sensitivity gives the same verdict |
+| H3: v1 is not an overfit pick (PBO < 0.5 and deflated Sharpe > 0.90) | NOT SUPPORTED (PBO passes, deflated Sharpe fails) |
+| E1 conformal hedge, E2 PySR formula | no value (exploratory) |
+| Replication check against the live hedged fund | v1 rule tracks it best; MV tracks worse; vol-capped about like static 50% (numbers in results_v2.md) |
+| Forward test | 0 months tracked until data exists on or after 2026-11; first read 2027-11, tracking only |
+
+### ManifoldBT cross-check
+
+The shared engine was checked against ManifoldBT 0.31.0: [`qengine/PARITY.md`](../qengine/PARITY.md). No P6-specific ManifoldBT run was made
+(a monthly currency overlay does not map onto its price-and-position model).
+
+### Lessons
+
+* A hedge benchmark can win on one lens (volatility) and still not matter: the MV gain is under one percentage point.
+* A literal model can blow up on one input (GARCH on CHF); report it literally and the guarded fix beside it.
+* A low PBO is not evidence of an edge; the deflated Sharpe is the stricter test and v1 fails it.
+* Fund replication correlation measures imitation, not quality.
+
+### Honesty
+
+Prereg v2 frozen before any v2 result and never edited. Choices used data up to 2016-12. All 2017-2026 numbers are labelled
+`seen period (v1 reported it)` and are descriptive. E1 and E2 are exploratory. The H1 window deviation (2006-09 start) is stated.
+Research artifact, not investment advice.
+
+### Reproduce v2
+
+```bash
+export PREREG_HASH=b2e9a0e506a9
+"$PY" scripts/v2/h1_h2.py && "$PY" scripts/v2/overfit_audit.py && "$PY" scripts/v2/descriptive.py \
+  && "$PY" scripts/v2/e1_conformal.py && "$PY" scripts/v2/e2_pysr.py && "$PY" scripts/v2/seen_period.py \
+  && "$PY" scripts/v2/forward.py && "$PY" scripts/v2/make_results_v2.py
+```

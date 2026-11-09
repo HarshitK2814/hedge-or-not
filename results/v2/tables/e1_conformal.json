@@ -1,0 +1,96 @@
+{
+ "label": "EXPLORATORY (E1); not a hypothesis test; never headline",
+ "prereg_hash": "b2e9a0e506a9",
+ "timing": "signal at month-end t from data to t; interval for month t+1 from scores of months realised by t; applied from next business day",
+ "params": {
+  "alpha": 0.2,
+  "gamma": 0.01,
+  "window_months": 36,
+  "yhat": "trailing 12-month mean"
+ },
+ "coverage_2004_2016": {
+  "nominal": 0.8,
+  "overall": 0.7884615384615384,
+  "bootstrap_ci95_month_mean": [
+   0.7286324786324786,
+   0.8411680911680912
+  ],
+  "by_currency": {
+   "EUR": 0.8012820512820513,
+   "JPY": 0.7692307692307693,
+   "GBP": 0.782051282051282,
+   "CHF": 0.7884615384615384,
+   "AUD": 0.782051282051282,
+   "SEK": 0.782051282051282,
+   "DKK": 0.8012820512820513,
+   "NOK": 0.8205128205128205,
+   "NZD": 0.7692307692307693
+  },
+  "n_currency_months": 1404
+ },
+ "hedge_state_shares_2004_2016": {
+  "hedge100": 0.0014245014245014246,
+  "hedge0": 0.0,
+  "hedge50": 0.9985754985754985
+ },
+ "portfolio_2004_2016": {
+  "n_months": 156,
+  "e1_vol": [
+   0.16540941844115928,
+   0.11387221819120397,
+   0.21702041737092526
+  ],
+  "static50_vol": [
+   0.16545321534309781,
+   0.11393181064094787,
+   0.21706022320033141
+  ],
+  "e1_cvar95": [
+   0.12184371571248381,
+   0.06457171309531073,
+   0.1801714612366208
+  ],
+  "static50_cvar95": [
+   0.12193067400570373,
+   0.06457171309531073,
+   0.1801714612366208
+  ],
+  "e1_sharpe_total_return": [
+   0.30332423319913043,
+   -0.3349084403889376,
+   1.181436306963018
+  ],
+  "static50_sharpe_total_return": [
+   0.3031009160705754,
+   -0.3349970588591575,
+   1.1804251455027521
+  ],
+  "diff_vol": [
+   -4.379690193853647e-05,
+   -0.00011784030831393787,
+   0.0,
+   156
+  ],
+  "diff_cvar95": [
+   -8.695829321991866e-05,
+   -0.00017391658643983732,
+   0.0,
+   156
+  ],
+  "diff_sharpe": [
+   0.00022331712855505614,
+   -0.00015207417385322135,
+   0.0008913866990928673,
+   156
+  ],
+  "mean_hedge_ratio_e1": 0.5012559119758865,
+  "monthly_turnover_e1": 0.0012834022317689336
+ },
+ "lookahead": "qengine.lookahead.check_lookahead passed on monthly hedge-ratio frame (shock after 70% cut)",
+ "mapie_enbpi_crosscheck_EUR": {
+  "coverage": 0.8717948717948718,
+  "n": 156,
+  "aci_coverage_EUR": 0.8012820512820513,
+  "note": "static EnbPI fitted to 2003 (residuals not refreshed) vs our ACI; EUR only"
+ }
+}

@@ -1,0 +1,80 @@
+{
+ "prereg_hash": "b2e9a0e506a9",
+ "window": [
+  "2001-09-01",
+  "2016-12-31"
+ ],
+ "costs": "v1 costs (no stress multiplier), per plan Task 4",
+ "note": "monthly data: 184 points, PBO uses 10 CSCV blocks (252 combinations)",
+ "primary_efa_plus_overlay": {
+  "label": "EFA + overlay (prereg Returns definition)",
+  "n_configs_in_family": 34,
+  "n_configs_in_pbo": 34,
+  "n_months": 184,
+  "pbo": 0.4126984126984127,
+  "n_cscv_combinations": 252,
+  "dynamic3_sharpe_ann_ci95": [
+   0.3277769777577166,
+   -0.2546138676935158,
+   1.0879902369227332
+  ],
+  "dynamic3_per_month_sharpe": 0.09462106317128983,
+  "sr_var_per_month": 5.133868404063246e-05,
+  "expected_max_per_month_sharpe_null": 0.015222296082546275,
+  "expected_max_ann_sharpe_null": 0.05273158044565366,
+  "deflated_sharpe": 0.8401220475823055,
+  "psr_vs_0": 0.8821321371543434,
+  "best_config": "momentum",
+  "best_ann_sharpe": 0.3835208008353087,
+  "dynamic3_rank_of_34": 8,
+  "n_configs_positive_sharpe": 34,
+  "top5": {
+   "momentum": 0.3835208008353087,
+   "momentum+value": 0.35074329907201174,
+   "momentum+cross_asset": 0.3431894087709625,
+   "momentum+value+cross_asset": 0.3344531063631557,
+   "momentum+volatility": 0.33376719567638813
+  },
+  "h3_pbo_pass": true,
+  "h3_dsr_pass": false,
+  "h3_supported": false
+ },
+ "sensitivity_pure_overlay_excl_degenerate_static0": {
+  "label": "overlay only (static0 column is identically zero and is dropped from PBO; still counted in n_trials = 34)",
+  "n_configs_in_family": 34,
+  "n_configs_in_pbo": 33,
+  "n_months": 184,
+  "pbo": 0.21031746031746032,
+  "n_cscv_combinations": 252,
+  "dynamic3_sharpe_ann_ci95": [
+   -0.0016872011121577166,
+   -0.5149953739393929,
+   0.5309609063624497
+  ],
+  "dynamic3_per_month_sharpe": -0.0004870530081406469,
+  "sr_var_per_month": 0.0005148990086041712,
+  "expected_max_per_month_sharpe_null": 0.048207968067639044,
+  "expected_max_ann_sharpe_null": 0.1669973000456177,
+  "deflated_sharpe": 0.2550235628121259,
+  "psr_vs_0": 0.49737137483736904,
+  "best_config": "momentum",
+  "best_ann_sharpe": 0.17447257426188434,
+  "dynamic3_rank_of_34": 7,
+  "n_configs_positive_sharpe": 6,
+  "top5": {
+   "momentum": 0.17447257426188434,
+   "rate+momentum": 0.0642255486797886,
+   "momentum+cross_asset": 0.04605172467415643,
+   "momentum+value": 0.03457632979762344,
+   "momentum+volatility": 0.014949682129257234
+  },
+  "h3_pbo_pass": true,
+  "h3_dsr_pass": false,
+  "h3_supported": false
+ },
+ "sensitivity_effective_trials": {
+  "n_eff_participation_ratio": 1.021868531789523,
+  "deflated_sharpe_with_n_eff": 0.8726579100528657,
+  "note": "NOT the prereg rule; shows how much DSR depends on the literal n_trials = 34 / highly correlated family"
+ }
+}

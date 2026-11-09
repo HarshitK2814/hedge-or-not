@@ -1,0 +1,445 @@
+{
+ "approximation": "VaR_1m = 2.326 x sigma_1d(GJR-GARCH-t, made at month-end) x sqrt(21); normal quantile; monthly backtest has few observations (~150), so Kupiec has low power; daily 1-day VaR reported as secondary",
+ "rows": [
+  {
+   "rule": "unhedged",
+   "variant": "literal",
+   "window": "choice 2004-09..2016-12",
+   "garch_days_above_5pct_daily_vol": 28,
+   "monthly": {
+    "n": 148,
+    "breaches": 0,
+    "kupiec_p": 0.08456538368517355,
+    "christoffersen_p": 1.0,
+    "mean_var99_pct": 13.199618218367368
+   },
+   "daily_secondary": {
+    "n": 3099,
+    "breaches": 54,
+    "breach_rate": 0.017424975798644726,
+    "kupiec_p": 0.00017082707625502123,
+    "christoffersen_p": 0.16629821927859512
+   }
+  },
+  {
+   "rule": "unhedged",
+   "variant": "literal",
+   "window": "S [seen period (v1 reported it)]",
+   "garch_days_above_5pct_daily_vol": 28,
+   "monthly": {
+    "n": 118,
+    "breaches": 2,
+    "kupiec_p": 0.49010290379257004,
+    "christoffersen_p": 0.7919657542382723,
+    "mean_var99_pct": 10.274886429902311
+   },
+   "daily_secondary": {
+    "n": 2436,
+    "breaches": 42,
+    "breach_rate": 0.017241379310344827,
+    "kupiec_p": 0.0011269526728476214,
+    "christoffersen_p": 0.207145298563323
+   }
+  },
+  {
+   "rule": "unhedged",
+   "variant": "guarded_sensitivity",
+   "window": "choice 2004-09..2016-12",
+   "garch_days_above_5pct_daily_vol": 28,
+   "monthly": {
+    "n": 148,
+    "breaches": 0,
+    "kupiec_p": 0.08456538368517355,
+    "christoffersen_p": 1.0,
+    "mean_var99_pct": 13.199618218367368
+   },
+   "daily_secondary": {
+    "n": 3099,
+    "breaches": 54,
+    "breach_rate": 0.017424975798644726,
+    "kupiec_p": 0.00017082707625502123,
+    "christoffersen_p": 0.16629821927859512
+   }
+  },
+  {
+   "rule": "unhedged",
+   "variant": "guarded_sensitivity",
+   "window": "S [seen period (v1 reported it)]",
+   "garch_days_above_5pct_daily_vol": 28,
+   "monthly": {
+    "n": 118,
+    "breaches": 2,
+    "kupiec_p": 0.49010290379257004,
+    "christoffersen_p": 0.7919657542382723,
+    "mean_var99_pct": 10.274886429902311
+   },
+   "daily_secondary": {
+    "n": 2436,
+    "breaches": 43,
+    "breach_rate": 0.017651888341543513,
+    "kupiec_p": 0.0006134862336952628,
+    "christoffersen_p": 0.22586075828120108
+   }
+  },
+  {
+   "rule": "static50",
+   "variant": "literal",
+   "window": "choice 2004-09..2016-12",
+   "garch_days_above_5pct_daily_vol": 24,
+   "monthly": {
+    "n": 148,
+    "breaches": 0,
+    "kupiec_p": 0.08456538368517355,
+    "christoffersen_p": 1.0,
+    "mean_var99_pct": 12.696505438294103
+   },
+   "daily_secondary": {
+    "n": 3099,
+    "breaches": 53,
+    "breach_rate": 0.017102291061632784,
+    "kupiec_p": 0.00030805387183510576,
+    "christoffersen_p": 0.17435612649716808
+   }
+  },
+  {
+   "rule": "static50",
+   "variant": "literal",
+   "window": "S [seen period (v1 reported it)]",
+   "garch_days_above_5pct_daily_vol": 24,
+   "monthly": {
+    "n": 118,
+    "breaches": 0,
+    "kupiec_p": 0.12353825451652455,
+    "christoffersen_p": 1.0,
+    "mean_var99_pct": 9.816242404571904
+   },
+   "daily_secondary": {
+    "n": 2436,
+    "breaches": 44,
+    "breach_rate": 0.0180623973727422,
+    "kupiec_p": 0.0003268079458298261,
+    "christoffersen_p": 0.2455434702678887
+   }
+  },
+  {
+   "rule": "static50",
+   "variant": "guarded_sensitivity",
+   "window": "choice 2004-09..2016-12",
+   "garch_days_above_5pct_daily_vol": 24,
+   "monthly": {
+    "n": 148,
+    "breaches": 0,
+    "kupiec_p": 0.08456538368517355,
+    "christoffersen_p": 1.0,
+    "mean_var99_pct": 12.696505438294103
+   },
+   "daily_secondary": {
+    "n": 3099,
+    "breaches": 53,
+    "breach_rate": 0.017102291061632784,
+    "kupiec_p": 0.00030805387183510576,
+    "christoffersen_p": 0.17435612649716808
+   }
+  },
+  {
+   "rule": "static50",
+   "variant": "guarded_sensitivity",
+   "window": "S [seen period (v1 reported it)]",
+   "garch_days_above_5pct_daily_vol": 24,
+   "monthly": {
+    "n": 118,
+    "breaches": 0,
+    "kupiec_p": 0.12353825451652455,
+    "christoffersen_p": 1.0,
+    "mean_var99_pct": 9.816242404571904
+   },
+   "daily_secondary": {
+    "n": 2436,
+    "breaches": 45,
+    "breach_rate": 0.01847290640394089,
+    "kupiec_p": 0.00017042374638013516,
+    "christoffersen_p": 0.2661874031340835
+   }
+  },
+  {
+   "rule": "static100",
+   "variant": "literal",
+   "window": "choice 2004-09..2016-12",
+   "garch_days_above_5pct_daily_vol": 21,
+   "monthly": {
+    "n": 148,
+    "breaches": 0,
+    "kupiec_p": 0.08456538368517355,
+    "christoffersen_p": 1.0,
+    "mean_var99_pct": 12.745006898803549
+   },
+   "daily_secondary": {
+    "n": 3099,
+    "breaches": 45,
+    "breach_rate": 0.01452081316553727,
+    "kupiec_p": 0.01781869874442265,
+    "christoffersen_p": 0.24940882885778703
+   }
+  },
+  {
+   "rule": "static100",
+   "variant": "literal",
+   "window": "S [seen period (v1 reported it)]",
+   "garch_days_above_5pct_daily_vol": 21,
+   "monthly": {
+    "n": 118,
+    "breaches": 0,
+    "kupiec_p": 0.12353825451652455,
+    "christoffersen_p": 1.0,
+    "mean_var99_pct": 9.858960114010802
+   },
+   "daily_secondary": {
+    "n": 2436,
+    "breaches": 39,
+    "breach_rate": 0.01600985221674877,
+    "kupiec_p": 0.006110747014236466,
+    "christoffersen_p": 0.6564492227576939
+   }
+  },
+  {
+   "rule": "static100",
+   "variant": "guarded_sensitivity",
+   "window": "choice 2004-09..2016-12",
+   "garch_days_above_5pct_daily_vol": 21,
+   "monthly": {
+    "n": 148,
+    "breaches": 0,
+    "kupiec_p": 0.08456538368517355,
+    "christoffersen_p": 1.0,
+    "mean_var99_pct": 12.745006898803549
+   },
+   "daily_secondary": {
+    "n": 3099,
+    "breaches": 45,
+    "breach_rate": 0.01452081316553727,
+    "kupiec_p": 0.01781869874442265,
+    "christoffersen_p": 0.24940882885778703
+   }
+  },
+  {
+   "rule": "static100",
+   "variant": "guarded_sensitivity",
+   "window": "S [seen period (v1 reported it)]",
+   "garch_days_above_5pct_daily_vol": 21,
+   "monthly": {
+    "n": 118,
+    "breaches": 0,
+    "kupiec_p": 0.12353825451652455,
+    "christoffersen_p": 1.0,
+    "mean_var99_pct": 9.858960114010802
+   },
+   "daily_secondary": {
+    "n": 2436,
+    "breaches": 40,
+    "breach_rate": 0.016420361247947456,
+    "kupiec_p": 0.003558088643159984,
+    "christoffersen_p": 0.6890646939615189
+   }
+  },
+  {
+   "rule": "v1_dynamic3",
+   "variant": "literal",
+   "window": "choice 2004-09..2016-12",
+   "garch_days_above_5pct_daily_vol": 21,
+   "monthly": {
+    "n": 148,
+    "breaches": 0,
+    "kupiec_p": 0.08456538368517355,
+    "christoffersen_p": 1.0,
+    "mean_var99_pct": 12.741985050790177
+   },
+   "daily_secondary": {
+    "n": 3099,
+    "breaches": 50,
+    "breach_rate": 0.016134236850596968,
+    "kupiec_p": 0.0016226438791050863,
+    "christoffersen_p": 0.20025776762654474
+   }
+  },
+  {
+   "rule": "v1_dynamic3",
+   "variant": "literal",
+   "window": "S [seen period (v1 reported it)]",
+   "garch_days_above_5pct_daily_vol": 21,
+   "monthly": {
+    "n": 118,
+    "breaches": 0,
+    "kupiec_p": 0.12353825451652455,
+    "christoffersen_p": 1.0,
+    "mean_var99_pct": 9.8425863796762
+   },
+   "daily_secondary": {
+    "n": 2436,
+    "breaches": 45,
+    "breach_rate": 0.01847290640394089,
+    "kupiec_p": 0.00017042374638013516,
+    "christoffersen_p": 0.058491028175290664
+   }
+  },
+  {
+   "rule": "v1_dynamic3",
+   "variant": "guarded_sensitivity",
+   "window": "choice 2004-09..2016-12",
+   "garch_days_above_5pct_daily_vol": 21,
+   "monthly": {
+    "n": 148,
+    "breaches": 0,
+    "kupiec_p": 0.08456538368517355,
+    "christoffersen_p": 1.0,
+    "mean_var99_pct": 12.741985050790177
+   },
+   "daily_secondary": {
+    "n": 3099,
+    "breaches": 50,
+    "breach_rate": 0.016134236850596968,
+    "kupiec_p": 0.0016226438791050863,
+    "christoffersen_p": 0.20025776762654474
+   }
+  },
+  {
+   "rule": "v1_dynamic3",
+   "variant": "guarded_sensitivity",
+   "window": "S [seen period (v1 reported it)]",
+   "garch_days_above_5pct_daily_vol": 21,
+   "monthly": {
+    "n": 118,
+    "breaches": 0,
+    "kupiec_p": 0.12353825451652455,
+    "christoffersen_p": 1.0,
+    "mean_var99_pct": 9.8425863796762
+   },
+   "daily_secondary": {
+    "n": 2436,
+    "breaches": 46,
+    "breach_rate": 0.018883415435139574,
+    "kupiec_p": 8.703129824168111e-05,
+    "christoffersen_p": 0.06604802156878897
+   }
+  },
+  {
+   "rule": "mv60",
+   "variant": "literal",
+   "window": "choice 2004-09..2016-12",
+   "garch_days_above_5pct_daily_vol": 19,
+   "monthly": {
+    "n": 123,
+    "breaches": 0,
+    "kupiec_p": 0.11586217295318875,
+    "christoffersen_p": 1.0,
+    "mean_var99_pct": 13.244635732853641
+   },
+   "daily_secondary": {
+    "n": 2575,
+    "breaches": 44,
+    "breach_rate": 0.0170873786407767,
+    "kupiec_p": 0.0010274664569104358,
+    "christoffersen_p": 0.21603562785990377
+   }
+  },
+  {
+   "rule": "mv60",
+   "variant": "literal",
+   "window": "S [seen period (v1 reported it)]",
+   "garch_days_above_5pct_daily_vol": 19,
+   "monthly": {
+    "n": 118,
+    "breaches": 0,
+    "kupiec_p": 0.12353825451652455,
+    "christoffersen_p": 1.0,
+    "mean_var99_pct": 9.68812029432479
+   },
+   "daily_secondary": {
+    "n": 2436,
+    "breaches": 44,
+    "breach_rate": 0.0180623973727422,
+    "kupiec_p": 0.0003268079458298261,
+    "christoffersen_p": 0.8217559709445798
+   }
+  },
+  {
+   "rule": "mv60",
+   "variant": "guarded_sensitivity",
+   "window": "choice 2004-09..2016-12",
+   "garch_days_above_5pct_daily_vol": 19,
+   "monthly": {
+    "n": 123,
+    "breaches": 0,
+    "kupiec_p": 0.11586217295318875,
+    "christoffersen_p": 1.0,
+    "mean_var99_pct": 13.244635732853641
+   },
+   "daily_secondary": {
+    "n": 2575,
+    "breaches": 44,
+    "breach_rate": 0.0170873786407767,
+    "kupiec_p": 0.0010274664569104358,
+    "christoffersen_p": 0.21603562785990377
+   }
+  },
+  {
+   "rule": "mv60",
+   "variant": "guarded_sensitivity",
+   "window": "S [seen period (v1 reported it)]",
+   "garch_days_above_5pct_daily_vol": 19,
+   "monthly": {
+    "n": 118,
+    "breaches": 0,
+    "kupiec_p": 0.12353825451652455,
+    "christoffersen_p": 1.0,
+    "mean_var99_pct": 9.68812029432479
+   },
+   "daily_secondary": {
+    "n": 2436,
+    "breaches": 45,
+    "breach_rate": 0.01847290640394089,
+    "kupiec_p": 0.00017042374638013516,
+    "christoffersen_p": 0.8552124820990935
+   }
+  },
+  {
+   "rule": "volcap_wf",
+   "variant": "literal",
+   "window": "choice 2004-09..2016-12",
+   "garch_days_above_5pct_daily_vol": 23,
+   "monthly": {
+    "n": 132,
+    "breaches": 0,
+    "kupiec_p": 0.103335915298286,
+    "christoffersen_p": 1.0,
+    "mean_var99_pct": 13.25863906578259
+   },
+   "daily_secondary": {
+    "n": 2764,
+    "breaches": 47,
+    "breach_rate": 0.017004341534008684,
+    "kupiec_p": 0.0007666198804364019,
+    "christoffersen_p": 0.20215481718349448
+   }
+  },
+  {
+   "rule": "volcap_wf",
+   "variant": "guarded_sensitivity",
+   "window": "choice 2004-09..2016-12",
+   "garch_days_above_5pct_daily_vol": 23,
+   "monthly": {
+    "n": 132,
+    "breaches": 0,
+    "kupiec_p": 0.103335915298286,
+    "christoffersen_p": 1.0,
+    "mean_var99_pct": 13.25863906578259
+   },
+   "daily_secondary": {
+    "n": 2764,
+    "breaches": 47,
+    "breach_rate": 0.017004341534008684,
+    "kupiec_p": 0.0007666198804364019,
+    "christoffersen_p": 0.20215481718349448
+   }
+  }
+ ]
+}
